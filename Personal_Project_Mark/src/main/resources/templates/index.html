@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"> <!-- MUST ADD THIS -->
+<link rel="stylesheet" th:href="@{css/main.css}" />
+
+<title>INDEX</title>
+
+<!--NAGIVATION BAR-->
+<div class="banner">
+	<div class="leftBanner">
+		<h1>BookMark</h1>
+	</div>
+	<div class="rightBanner">
+		<span> <a href="/"><input
+				type="button" value="Book Shop" /></a>
+		</span>
+		<span sec:authorize="isAnonymous()"> <a href="/login"><input
+				type="button" value="Login" /></a>
+		</span>
+		<span sec:authorize="isAnonymous()">
+				<a href="/register"><input type="button" value="Register"/></a>
+		</span>
+		
+		<span sec:authorize="isAuthenticated()">
+			<a href="/userSecured/personalBookPage">
+				<input type="button" value="Personal Book Shelf"/>
+			</a>
+		</span>
+		<span sec:authorize="isAuthenticated()">
+			<form method="post" th:action="@{/logout}">
+				<input type="submit" value="Logout"  class="logout"/>
+			</form>
+		</span>
+		<span sec:authorize="isAuthenticated()" th:text="${#authentication.getPrincipal().getUsername()}"></span>
+	</div>
+</div>
+	
+	
+	<body>
+		<!-- <h2>Mark's Market of Books</h2>
+		<h3>Let your imagination run wild!</h3>
+		
+		<div sec:authorize="isAuthenticated()">
+			<a href="/userSecured/personalBookPage">
+				<input type="button" value="Personal Book Shelf"/>
+			</a>
+			<br>
+			Logged in as: <span th:text="${#authentication.getPrincipal().getUsername()}"></span>
+			
+			<form method="post" th:action="@{/logout}">
+				<input type="submit" value="Logout" />
+			</form>
+			
+		</div>
+		
+		<div sec:authorize="isAnonymous()">
+			<a href="/login"><input type="button" value="Login"/></a><br>
+			<a href="/register"><input type="button" value="Register"/></a>
+		</div>
+		<br> -->
+		<br>
+		<div class="flexBox">
+			<div class="forms">
+				Search for a book:
+				<!-- Search Book Title -->
+				<form method="post" action="" th:action="@{/searchBookByTitle}" th:object="${book}">
+					Title: 		<input type="text" 		name="title" 	th:field="*{bookTitle}" />
+					<input type="submit" value="Search Title" class="generalForm"/>
+				</form>
+				
+				<!-- Search Author -->
+				<form method="post" action="" th:action="@{/searchBookByAuthor}" th:object="${book}">
+					Author: 	<input type="text" 		name="author"	th:field="*{bookAuthor}" />
+					<input type="submit" value="Search Author" class="generalForm"/>
+				</form>
+				
+				<!-- Search Book through ISBN -->
+				<form method="post" action="" th:action="@{/searchBookByISBN}" th:object="${book}">
+					ISBN: 		<input type="text" 		name="ISBN" 	th:field="*{bookISBN}" />
+					<input type="submit" value="Search ISBN" class="generalForm"/>
+				</form>
+			</div>
+			<div class="forms">
+				Add a book not on the list (No Duplicate ISBNs!):
+				<form method="post" action="" th:action="@{/insertBook}" th:object="${book}">
+								<input type="hidden" 	name="ID" 		th:field="*{id}" />
+					Title: 		<input type="text" 		name="title" 	th:field="*{bookTitle}" /><br>
+					Author: 	<input type="text" 		name="author"	th:field="*{bookAuthor}" /><br>
+					ISBN: 		<input type="text" 		name="ISBN" 	th:field="*{bookISBN}" /><br>
+								<input type="hidden" 	name="Rating" 	th:field="*{bookRating}" />
+					<input type="submit" value="Add Book" class="generalForm"/>
+				</form>
+			</div>
+		</div>
+		
+		<h3>Full Book List</h3>
+		<table>
+			<tr>
+				<th>Title</th>
+				<th>Author</th>
+				<th>ISBN</th>
+				<th sec:authorize="isAuthenticated()">Personal Book Shelf</th>
+			</tr>
+			
+			<!-- Loops through all the books -->
+			<tr th:each="aBooks:${bookList}">
+				<td th:text="${aBooks.bookTitle}">	</td>
+				<td th:text="${aBooks.bookAuthor}">	</td>
+				<td th:text="${aBooks.bookISBN}">	</td>
+				<td sec:authorize="isAuthenticated()">
+					<a th:href="@{/addPersonalBookById/}+${aBooks?.id}">Add</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

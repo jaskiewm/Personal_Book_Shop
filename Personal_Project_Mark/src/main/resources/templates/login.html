@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{css/main.css}" />
+
+<title>LOGIN</title>
+
+<!--NAGIVATION BAR-->
+<div class="banner">
+	<div class="leftBanner">
+		<h1>BookMark</h1>
+	</div>
+	<div class="rightBanner">
+		<span> <a href="/"><input
+				type="button" value="Book Shop" /></a>
+		</span>
+		<span sec:authorize="isAnonymous()"> <a href="/login"><input
+				type="button" value="Login" /></a>
+		</span>
+		<span sec:authorize="isAnonymous()">
+				<a href="/register"><input type="button" value="Register"/></a>
+		</span>
+		
+		<span sec:authorize="isAuthenticated()">
+			<a href="/userSecured/personalBookPage">
+				<input type="button" value="Personal Book Shelf"/>
+			</a>
+		</span>
+		<span sec:authorize="isAuthenticated()">
+			<form method="post" th:action="@{/logout}">
+				<input type="submit" value="Logout"  class="logout"/>
+			</form>
+		</span>
+		<span sec:authorize="isAuthenticated()" th:text="${#authentication.getPrincipal().getUsername()}"></span>
+	</div>
+</div>
+<br>
+<body>
+
+<form method="post" th:action="@{/login}">
+
+	<!-- IF THERE ARE INVALID CREDENTIALS -->
+	<div th:if="${param.error}">
+		<div class="error">Invalid credentials</div>
+	</div>
+
+	<!-- LOGOUT -->
+	<div th:if="${param.logout}">
+		<div class="success">You have been logged out</div>
+	</div>
+
+	<!-- LOGIN -->
+	Email: <input type="email" name="username" /><br> Password: <input
+		type="password" name="password" /><br> <input type="submit"
+		value="Log In" name="login-submit" class="logout" />
+</form>
+</body>
+</html>

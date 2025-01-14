@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"> 
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+
+<title>PERMISSION DENIED</title>
+
+<!--NAGIVATION BAR-->
+<div class="banner">
+	<div class="leftBanner">
+		<h1>BookMark</h1>
+	</div>
+	<div class="rightBanner">
+		<span> <a href="/"><input
+				type="button" value="Book Shop" /></a>
+		</span>
+		<span sec:authorize="isAnonymous()"> <a href="/login"><input
+				type="button" value="Login" /></a>
+		</span>
+		<span sec:authorize="isAnonymous()">
+				<a href="/register"><input type="button" value="Register"/></a>
+		</span>
+		
+		<span sec:authorize="isAuthenticated()">
+			<a href="/userSecured/personalBookPage">
+				<input type="button" value="Personal Book Shelf"/>
+			</a>
+		</span>
+		<span sec:authorize="isAuthenticated()">
+			<form method="post" th:action="@{/logout}">
+				<input type="submit" value="Logout"  class="logout"/>
+			</form>
+		</span>
+		<span sec:authorize="isAuthenticated()" th:text="${#authentication.getPrincipal().getUsername()}"></span>
+	</div>
+</div>
+
+<h2>Permission denied</h2>
+</html>

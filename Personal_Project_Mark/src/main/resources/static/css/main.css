@@ -1,0 +1,141 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+  	padding: 0;
+}
+
+body{
+    font-family: Arial, sans-serif;
+   	margin-left:auto;
+	margin-right:auto;
+    width:70%;
+}
+
+h1{
+	color: #284153;
+	font-weight: 700;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  	transition: 0.3s ease;
+}
+
+h1:hover{
+	color: #255172;
+ 	text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* LINK FORMATTING */
+a{
+	color:grey;
+	}
+a:visited{
+    color:grey;
+    transition: .5s;
+}
+a:hover{
+    color:blue;
+    transition: .5s;
+}
+
+/*NAVIGATION BAR*/
+.banner{
+	align-items: center;
+	background-color: #f9f9f9;
+	display: flex;
+	justify-content: space-between;
+	padding: 2%;
+}
+
+.bannerItem{
+	background-color:red;
+	height:100%;
+}
+
+.bannerRight{
+	display: flex;
+  	gap: 2%;
+  	flex-direction: row;
+}
+
+
+/*INPUT AND BUTTON FORMATTING*/
+input[type="text"],input[type="email"],input[type="password"] {
+    border: 1px solid #808080;
+    border-radius: 5px;
+    font-size:0.9em;
+    margin-bottom: 2%;
+    padding: 1%;
+    width:auto;
+}
+
+input[type="text"]:hover{
+	background-color:  #e8e8e8;
+	transition: .25s ease-in-out;
+}
+
+.rightBanner span{
+	display: inline-block;  /* Ensure the spans are inline elements */
+}
+
+input[type="button"], .logout{
+	align-items: center;
+	background-color: #55a9e1;
+	border: none;
+	border-radius: 10px;
+	color: black;
+	cursor: pointer;
+	font-size: 16px;
+	padding: 0.5em 1em;
+	transition: 0.2s ease-in-out;
+}
+
+input[type="button"]:hover, .logout:hover{
+	background-color: #2994da;
+	color: #131313;
+	transition: 0.25s ease-in-out;
+}
+
+.generalForm{
+    background-color: #55a9e1;
+    border-radius: 5px;
+    border: 1px solid #808080;
+    color: black;
+    cursor: pointer;
+    font-size:0.9em;
+    margin-bottom: 2%;
+    padding: 1%;
+    width:auto;
+}
+
+.generalForm:hover{
+    background-color: #2994da;
+    color: #131313;
+    transition: .25s ease-in-out;
+}
+
+/* FLEXBOX FORMATTING */
+.flexBox {
+    display: flex;
+    justify-content: space-between;
+}
+.forms {
+	flex: 1;
+	}
+
+/* TABLE FORMATTING */
+table {
+    border-collapse: collapse;
+    box-sizing: border-box;
+    font-size:0.9em;
+    width:100%;
+}
+
+th, td {
+	border: 1px solid grey;
+	padding: 1%;
+    text-align: left;
+    width:auto;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+td:last-child {text-align: center;}
+tr:hover {background-color: #D3D3D3;}

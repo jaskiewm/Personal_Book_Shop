@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"> <!-- MUST ADD THIS -->
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+
+<title>PERSONAL BOOK PAGE</title>
+
+	<!--NAGIVATION BAR-->
+<div class="banner">
+	<div class="leftBanner">
+		<h1>BookMark</h1>
+	</div>
+	<div class="rightBanner">
+		<span> <a href="/"><input
+				type="button" value="Book Shop" /></a>
+		</span>
+		<span sec:authorize="isAnonymous()"> <a href="/login"><input
+				type="button" value="Login" /></a>
+		</span>
+		<span sec:authorize="isAnonymous()">
+				<a href="/register"><input type="button" value="Register"/></a>
+		</span>
+		
+		<span sec:authorize="isAuthenticated()">
+			<a href="/userSecured/personalBookPage">
+				<input type="button" value="Personal Book Shelf"/>
+			</a>
+		</span>
+		<span sec:authorize="isAuthenticated()">
+			<form method="post" th:action="@{/logout}">
+				<input type="submit" value="Logout"  class="logout"/>
+			</form>
+		</span>
+		<span sec:authorize="isAuthenticated()" th:text="${#authentication.getPrincipal().getUsername()}"></span>
+	</div>
+</div>
+	
+	<body>
+		<h3>Personal Book List</h3>
+		<table>
+			<tr>
+				<th>Title</th>
+				<th>Author</th>
+				<th>ISBN</th>
+				<th>Rating</th>
+				<th>Delete From List</th>
+				<th>Change Personal Rating</th>
+			</tr>
+			
+			<!-- Loops through all the books -->
+			<tr th:each="pBooks:${personalBookList}">
+				<td th:text="${pBooks.bookTitle}"></td>
+				<td th:text="${pBooks.bookAuthor}"></td>
+				<td th:text="${pBooks.bookISBN}"></td>
+				<td th:text="${pBooks.bookRating}"></td>
+				<td><a th:href="@{/deletePersonalBookById/}+${pBooks?.id}">Delete</a></td>
+				
+				<!-- Rating system for the books /5 -->
+				<td>
+					<a th:href="@{/ratePersonalBook/1/}+${pBooks?.id}">1</a> / 
+					<a th:href="@{/ratePersonalBook/2/}+${pBooks?.id}">2</a> / 
+					<a th:href="@{/ratePersonalBook/3/}+${pBooks?.id}">3</a> / 
+					<a th:href="@{/ratePersonalBook/4/}+${pBooks?.id}">4</a> / 
+					<a th:href="@{/ratePersonalBook/5/}+${pBooks?.id}">5</a>
+				</td>
+				
+			</tr>
+		</table>	
+	</body>
+</html>
