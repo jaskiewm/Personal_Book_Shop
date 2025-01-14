@@ -26,7 +26,11 @@
 
 ### Built With
 [![Java]][Java-url]
-[![SpringBoot]][SpringBoot-url]
+[![SpringBoot]][SpringBoot-url]<br>
+Maven - 4.0.0<br>
+Spring Boot Framework - 3.3.4<br>
+Java - 17
+
 
 <!-- USAGE EXAMPLES -->
 ### Installation & Usage
