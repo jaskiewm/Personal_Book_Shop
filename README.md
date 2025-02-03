@@ -61,15 +61,15 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [in-progress]: https://img.shields.io/badge/project--status-work--in--progress-orange?style=for-the-badge
 [complete]: https://img.shields.io/badge/project--status-complete-green?style=for-the-badge
 [contributors-shield]: https://img.shields.io/github/contributors/jaskiewm/Personal_Book_Shop.svg?style=for-the-badge
-[contributors-url]: https://github.com/jaskiewm/project-al/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/jaskiewm/project-al.svg?style=for-the-badge
-[forks-url]: https://github.com/jaskiewm/project-al/network/members
-[stars-shield]: https://img.shields.io/github/stars/jaskiewm/project-al.svg?style=for-the-badge
-[stars-url]: https://github.com/jaskiewm/project-al/stargazers
-[issues-shield]: https://img.shields.io/github/issues/jaskiewm/project-al.svg?style=for-the-badge
-[issues-url]: https://github.com/jaskiewm/project-al/issues
-[license-shield]: https://img.shields.io/github/license/jaskiewm/project-al.svg?style=for-the-badge
-[license-url]: https://github.com/jaskiewm/project-al/blob/master/LICENSE.txt
+[contributors-url]: https://github.com/jaskiewm/Personal_Book_Shop/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/jaskiewm/Personal_Book_Shop.svg?style=for-the-badge
+[forks-url]: https://github.com/jaskiewm/Personal_Book_Shop/network/members
+[stars-shield]: https://img.shields.io/github/stars/jaskiewm/Personal_Book_Shop.svg?style=for-the-badge
+[stars-url]: https://github.com/jaskiewm/Personal_Book_Shop/stargazers
+[issues-shield]: https://img.shields.io/github/issues/jaskiewm/Personal_Book_Shop.svg?style=for-the-badge
+[issues-url]: https://github.com/jaskiewm/Personal_Book_Shop/issues
+[license-shield]: https://img.shields.io/github/license/jaskiewm/Personal_Book_Shop.svg?style=for-the-badge
+[license-url]: https://github.com/jaskiewm/Personal_Book_Shop/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/jaskiewm
 
